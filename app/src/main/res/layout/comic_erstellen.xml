@@ -71,7 +71,9 @@
         android:id="@+id/button_home"
         android:layout_width="83dp"
         android:layout_height="37dp"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="11dp" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
