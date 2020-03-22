@@ -14,9 +14,8 @@ import java.util.List;
 public class comic_erstellen extends Activity {
 
 
-    Spinner sItems = (Spinner) findViewById(R.id.comic_erstellen_category);
 
-
+    Spinner sItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +33,7 @@ public class comic_erstellen extends Activity {
                 this, android.R.layout.simple_spinner_item, spinnerArray);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sItems = (Spinner) findViewById(R.id.comic_erstellen_category);
         sItems.setAdapter(adapter);
 
     }
