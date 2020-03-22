@@ -15,6 +15,13 @@ import android.view.View;
 
 public class main_page extends Activity {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.main_page);
+    }
+
     public void main_page_create_comic(View view){
         setContentView(R.layout.comic_erstellen);
     }
