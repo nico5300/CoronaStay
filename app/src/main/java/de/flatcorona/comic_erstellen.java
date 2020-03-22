@@ -1,6 +1,7 @@
 package de.flatcorona;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -49,6 +50,10 @@ public class comic_erstellen extends Activity {
 
     }
 
+    public void comic_erstellen_button_weiter(View view){
+        Intent i = new Intent(getApplicationContext(), comic_erstellen_2.class);
+        startActivity(i);
+    }
 
 
 }
