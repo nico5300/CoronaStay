@@ -4,82 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECE8EA"
+    android:background="#FFFFFF"
     tools:context=".FullscreenActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <LinearLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <Button
+            android:id="@+id/activity_fullscreen_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:onClick="full_activity_start"
+            android:paddingLeft="100px"
+            android:paddingRight="100px"
+            android:text="Starten"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:id="@+id/activity_fullscreen_start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:paddingLeft="100px"
-                android:paddingRight="100px"
-                android:text="Starten"
-                android:onClick="full_activity_start"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/activity_fullscreen_username"
+            android:layout_width="213dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="99dp"
+            android:layout_marginEnd="99dp"
+            android:layout_marginBottom="100dp"
+            android:contentDescription="This is a test"
+            android:ems="10"
+            android:hint="Dein Name"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/activity_fullscreen_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <EditText
-                android:id="@+id/activity_fullscreen_username"
-                android:layout_width="213dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="99dp"
-                android:layout_marginEnd="99dp"
-                android:layout_marginBottom="100dp"
-                android:contentDescription="This is a test"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintBottom_toTopOf="@+id/activity_fullscreen_start"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.6"
-                app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="206dp"
+            android:layout_height="198dp"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintBottom_toTopOf="@+id/activity_fullscreen_textlabel_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/flatcorona" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="123dp"
-                android:layout_height="139dp"
-                android:layout_marginBottom="100dp"
-                app:layout_constraintBottom_toTopOf="@+id/activity_fullscreen_textlabel_1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@android:drawable/presence_busy" />
-
-            <TextView
-                android:id="@+id/activity_fullscreen_textlabel_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Wie sollen wir dich nennen?"
-                app:layout_constraintBottom_toTopOf="@+id/activity_fullscreen_username"
-                app:layout_constraintStart_toStartOf="@+id/activity_fullscreen_username" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/activity_fullscreen_textlabel_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Wie sollen wir dich nennen?"
+            app:layout_constraintBottom_toTopOf="@+id/activity_fullscreen_username"
+            app:layout_constraintStart_toStartOf="@+id/activity_fullscreen_username" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->

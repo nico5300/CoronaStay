@@ -1,6 +1,8 @@
 package de.flatcorona;
 
-public class comic {
+import android.app.Activity;
+
+public class comic extends Activity {
 
 
 }
