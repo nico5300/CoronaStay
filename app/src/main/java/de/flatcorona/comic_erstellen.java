@@ -14,8 +14,6 @@ import java.util.List;
 
 public class comic_erstellen extends Activity {
 
-
-
     Spinner sItems;
 
     @Override
@@ -24,6 +22,7 @@ public class comic_erstellen extends Activity {
 
         setContentView(R.layout.comic_erstellen);
 
+        sItems = (Spinner) findViewById(R.id.comic_erstellen_category);
         List<String> spinnerArray =  new ArrayList<String>();
         spinnerArray.add("Horror");
         spinnerArray.add("Fantasy");
@@ -54,6 +53,5 @@ public class comic_erstellen extends Activity {
         Intent i = new Intent(getApplicationContext(), comic_erstellen_2.class);
         startActivity(i);
     }
-
 
 }

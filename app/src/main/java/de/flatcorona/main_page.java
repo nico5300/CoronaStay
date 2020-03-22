@@ -30,17 +30,16 @@ public class main_page extends Activity {
         Intent i = new Intent(getApplicationContext(), comic_erstellen.class);
         startActivity(i);
     }
+
+    public void main_page_finished_comic(View view){
+        Intent i = new Intent(getApplicationContext(), fertige_comics.class);
+        startActivity(i);
+    }
 /*
     public void main_page_create_comic(View view){
         Intent i = new Intent(getApplicationContext(), comic_erstellen.class);
         startActivity(i);
     }
-
-    public void main_page_create_comic(View view){
-        Intent i = new Intent(getApplicationContext(), comic_erstellen.class);
-        startActivity(i);
-    }
 */
-
 
 }
