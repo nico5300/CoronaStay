@@ -12,6 +12,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -48,36 +53,23 @@ public class FullscreenActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            try {
-                URL url = new URL(global_variables.adress + "/register/");
-                HttpURLConnection http = (HttpURLConnection) url.openConnection();
-                http.setRequestMethod("POST");
-                http.setDoOutput(true);
-                byte[] out = json.toString().getBytes(StandardCharsets.UTF_8);
-                int length = out.length;
-
-                http.setFixedLengthStreamingMode(length);
-                http.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                http.connect();
-                try(OutputStream os = http.getOutputStream()) {
-                    os.write(out);
-                }
-
-                InputStream input = http.getInputStream();
-                String apiKey = "";
-                int i = 0;
-                while ((i = input.read()) != -1){
-                    char c = (char) i;
-                    apiKey += c;
-                }
-                //TODO: deserialize
-                global_variables.api_key = apiKey;
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Intent i = new Intent(getApplicationContext(), main_page.class);
-            startActivity(i);
+            JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, global_variables.adress + "/register/", json,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                global_variables.api_key = (String)response.get("api_key");
+                                startActivity(new Intent(getApplicationContext(), main_page.class));
+                            } catch (JSONException e) {}
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(getApplicationContext(), "Unable to get API key", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            Networking.getInstance(this).addRequest(req);
         }
     }
 
